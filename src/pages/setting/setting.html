@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>ตั้งค่าค่าServer!</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+    <p>
+    ก่อนใช้ App นี้ต้องทำการสร้าง Web Server ขึ้นในร้าน และสามารถAccess ได้จากข้างนอกได้ก่อน
+    </p>
+    <form (ngSubmit)="saved()">
+      <ion-item>
+        <ion-label>url</ion-label>
+        <ion-input type="text" [(ngModel)]="serverName" name="server"></ion-input>
+      </ion-item>
+      <button ion-button type="submit" block>แล้วกดปุ่มนี้</button>
+    </form>
+    <button ion-button color="primary" menuToggle>Toggle Menu</button>
+</ion-content>

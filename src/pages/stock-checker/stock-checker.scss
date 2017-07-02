@@ -1,0 +1,31 @@
+
+.search-result{
+  border: #488aff;
+  width:360px;
+  background-color: white;
+  cursor: pointer;
+}
+.search-result:hover {
+  color: #eee;
+  background-color: #488aff;
+}
+
+.item-input-wrapper {
+    display:block;
+    float:right;
+ }
+
+#search-box{
+  background-color: #488aff;
+  color: #eee;
+  cursor: pointer;
+}
+
+#stock-detail{
+  display:block;
+  border: #488aff;
+  color: #000;
+  cursor: pointer;
+}
+
+

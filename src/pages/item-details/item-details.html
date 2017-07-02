@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-navbar>
+    <button menuToggle *ngIf="!selectedItem">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{pageTitle}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <h3 text-center *ngIf="selectedItem">
+    {{selectedItem.name}}
+    <!--<ion-icon [name]="selectedItem.name"></ion-icon>-->
+  </h3>
+    <ngx-datatable
+        class="material"
+        [rows]="rows"
+        [loadingIndicator]="loadingIndicator"
+        [columns]="columns"
+        [columnMode]="'force'"
+        [headerHeight]="50"
+        [footerHeight]="50"
+        [rowHeight]="'auto'"
+        [reorderable]="reorderable">
+
+      <ngx-datatable-column prop="businessName" minWidth="200" name="รายการ">
+      <ng-template let-value="value" ngx-datatable-cell-template>
+        {{value}}
+      </ng-template>
+      </ngx-datatable-column>
+      <ngx-datatable-column prop="qtyAmonth" name="อัตรา">
+        <ng-template let-value="value" ngx-datatable-cell-template>
+            {{value | number: '1.0-0'}}
+        </ng-template>
+      </ngx-datatable-column>  
+      <ngx-datatable-column prop="latestCost" name="ทุน">
+        <ng-template let-value="value" ngx-datatable-cell-template>
+            {{value | number: '1.0-0'}}
+        </ng-template>
+      </ngx-datatable-column>  
+
+      <!-- rest of the column--> 
+           
+      <ngx-datatable-column>
+          <ng-template let-column="column" ngx-datatable-header-template>
+              จำนวน
+          </ng-template>
+          <ng-template let-row="row" ngx-datatable-cell-template>
+              {{row.qtyNowAll}} {{row.unitNameA}}
+          </ng-template>
+      </ngx-datatable-column>
+    </ngx-datatable>
+  <h4 text-center *ngIf="selectedItem">
+    You navigated here from <b>{{selectedItem.name}}</b>
+  </h4>
+</ion-content>

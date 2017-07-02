@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>นับคลังสินค้า!</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+<ion-input type="text" #searchBox id="search-box" [(ngModel)]="textSearch" (keyup)="search(searchBox.value)" placeholder="พิมพ์ชื่อสินค้า"></ion-input>
+<ion-item>
+  <div id="search-component">
+  <div *ngFor="let stock of stocks | async" (click)="onSelect(stock)" class="search-result" > {{stock.businessName}}></div>
+  </div>
+</ion-item>
+
+
+<div *ngIf="stockDetail" id="stock-detail">
+    <ion-label>{{stockDetail.businessName}}!</ion-label>
+    <ion-label>เหลือ: {{stockDetail.qtyNowAll}} {{stockDetail.unitNameA}} ล่าสุด: {{stockDetail.latestCost}} </ion-label>
+    <div class="row"> 
+      <div class="col col-70">
+        <ion-label>ป้อนจำนวนที่เหลือจริง</ion-label>
+      </div>
+      <div class="col col-30">
+        <ion-input type="number" [(ngModel)]="stockDetail.qtyActual" id="search-box"></ion-input>
+      </div>
+    </div>
+</div>
+<button ion-button block (click)="save()">บันทึกยอดใหม่</button>
+<button ion-button color="primary" menuToggle>Toggle Menu</button>
+</ion-content>
